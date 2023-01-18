@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商品を印字しよう！</title>
+</head>
+<body>
+  <div class="output">
+    <ul>
+    </ul>
+  </div>
+</body>
+<script>
+  const list = document.querySelector('.output ul');
+  const totalBox = document.querySelector('.output p');
+  let total = 0;
+  list.innerHTML = '';
+  totalBox.textContent = '';
+
+  let products = [
+    'パンツ:6.99',
+    '靴下:5.99',
+    'T シャツ:14.99',
+    'ズボン:31.99',
+    '靴:23.99',
+  ];
+
+  for (let i = 0; i < products.length; i++) { 
+    const subArray= products[i].split(':');
+    const name = subArray[0];
+    const price = Number(subArray[1]);
+    total += price;
+    itemText = `${name}_\$${price}`;
+
+    const listItem = document.createElement('li');
+    listItem.textContent = itemText;
+    list.appendChild(listItem);
+  }
+
+  totalBox.textContent = '合計: $' + total.toFixed(2);	
+  </script>
+</html>

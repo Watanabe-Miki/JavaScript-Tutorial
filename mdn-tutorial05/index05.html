@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>単語の最初の文字を大文字に直す</title>
+</head>
+<body>
+  <div class="output">
+    <ul>
+    </ul>
+  </div>
+</body>
+<script>
+  const list = document.querySelector('.output ul');
+  list.innerHTML = '';
+  let cities = [
+    'lonDon', 
+    'ManCHESTer', 
+    'BiRmiNGHAM', 
+    'liVERpoOL'
+    ];
+
+  // 最初の文字を大文字に
+  // 残りをすべて小文字にする
+
+  // for文でひとつづつ処理をする
+  // 文字列の０番目を取得し、大文字に変える
+  // 文字列の1番目以降を取得し小文字に変える
+
+  for (let i = 0; i < cities.length; i++) {
+    let input = cities[i];
+    let lower = input.toLowerCase();
+    let firstLetter = lower.slice(0, 1);
+    let capitalized = lower.replace(firstLetter, firstLetter.toUpperCase());
+    const result = capitalized;
+    let listItem = document.createElement('li');
+    listItem.textContent = result;
+    list.appendChild(listItem);
+  }
+</script>
+</html>

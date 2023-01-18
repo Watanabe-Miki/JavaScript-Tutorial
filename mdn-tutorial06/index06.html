@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>既存の部分から新しい文字列を作成する</title>
+</head>
+<body>
+  <div class="output">
+    <ul>
+    </ul>
+  </div>
+</body>
+<script>
+  // MAN: Manchester Piccadilly 下記配列をこの形にして出力する
+  // 最初の３文字を取得して変数に入れておく
+  // セミコロン以降の文字列を取得し変数に入れておく
+  // テンプレートリテラルで出力する
+  const list = document.querySelector('.output ul');
+    list.innerHTML = '';
+    let stations = [
+      'MAN675847583748sjt567654;Manchester Piccadilly',
+      'GNF576746573fhdg4737dh4;Greenfield',
+      'LIV5hg65hd737456236dch46dg4;Liverpool Lime Street',
+      'SYB4f65hf75f736463;Stalybridge',
+      'HUD5767ghtyfyr4536dh45dg45dg3;Huddersfield'
+    ];
+
+    for (let i = 0; i < stations.length; i++) {
+      let input = stations[i];
+      let code = input.slice(0, 3);
+      let semiC = input.indexOf(';');
+      let name = input.slice(semiC + 1);
+      const outputFormat = `${code}:${name}`;
+
+      const result = outputFormat;
+      const listItem = document.createElement('li');
+      listItem.textContent = result;
+      list.appendChild(listItem);
+    }
+</script>
+</html>
